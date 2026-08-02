@@ -14,8 +14,10 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedLibraryRouteImport } from './routes/_authenticated/library'
 import { Route as AuthenticatedProgressRouteImport } from './routes/_authenticated/progress'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedTodayRouteImport } from './routes/_authenticated/today'
 import { Route as AuthenticatedExerciseSlugRouteImport } from './routes/_authenticated/exercise.$slug'
+import { Route as AuthenticatedSummarySessionIdRouteImport } from './routes/_authenticated/summary.$sessionId'
 import { Route as AuthenticatedWorkoutDayIdRouteImport } from './routes/_authenticated/workout.$dayId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -42,6 +44,11 @@ const AuthenticatedProgressRoute = AuthenticatedProgressRouteImport.update({
   path: '/progress',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedTodayRoute = AuthenticatedTodayRouteImport.update({
   id: '/today',
   path: '/today',
@@ -51,6 +58,12 @@ const AuthenticatedExerciseSlugRoute =
   AuthenticatedExerciseSlugRouteImport.update({
     id: '/exercise/$slug',
     path: '/exercise/$slug',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSummarySessionIdRoute =
+  AuthenticatedSummarySessionIdRouteImport.update({
+    id: '/summary/$sessionId',
+    path: '/summary/$sessionId',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkoutDayIdRoute =
@@ -65,8 +78,10 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/library': typeof AuthenticatedLibraryRoute
   '/progress': typeof AuthenticatedProgressRoute
+  '/settings': typeof AuthenticatedSettingsRoute
   '/today': typeof AuthenticatedTodayRoute
   '/exercise/$slug': typeof AuthenticatedExerciseSlugRoute
+  '/summary/$sessionId': typeof AuthenticatedSummarySessionIdRoute
   '/workout/$dayId': typeof AuthenticatedWorkoutDayIdRoute
 }
 export interface FileRoutesByTo {
@@ -74,8 +89,10 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/library': typeof AuthenticatedLibraryRoute
   '/progress': typeof AuthenticatedProgressRoute
+  '/settings': typeof AuthenticatedSettingsRoute
   '/today': typeof AuthenticatedTodayRoute
   '/exercise/$slug': typeof AuthenticatedExerciseSlugRoute
+  '/summary/$sessionId': typeof AuthenticatedSummarySessionIdRoute
   '/workout/$dayId': typeof AuthenticatedWorkoutDayIdRoute
 }
 export interface FileRoutesById {
@@ -85,8 +102,10 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/_authenticated/library': typeof AuthenticatedLibraryRoute
   '/_authenticated/progress': typeof AuthenticatedProgressRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/today': typeof AuthenticatedTodayRoute
   '/_authenticated/exercise/$slug': typeof AuthenticatedExerciseSlugRoute
+  '/_authenticated/summary/$sessionId': typeof AuthenticatedSummarySessionIdRoute
   '/_authenticated/workout/$dayId': typeof AuthenticatedWorkoutDayIdRoute
 }
 export interface FileRouteTypes {
@@ -96,8 +115,10 @@ export interface FileRouteTypes {
     | '/auth'
     | '/library'
     | '/progress'
+    | '/settings'
     | '/today'
     | '/exercise/$slug'
+    | '/summary/$sessionId'
     | '/workout/$dayId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -105,8 +126,10 @@ export interface FileRouteTypes {
     | '/auth'
     | '/library'
     | '/progress'
+    | '/settings'
     | '/today'
     | '/exercise/$slug'
+    | '/summary/$sessionId'
     | '/workout/$dayId'
   id:
     | '__root__'
@@ -115,8 +138,10 @@ export interface FileRouteTypes {
     | '/auth'
     | '/_authenticated/library'
     | '/_authenticated/progress'
+    | '/_authenticated/settings'
     | '/_authenticated/today'
     | '/_authenticated/exercise/$slug'
+    | '/_authenticated/summary/$sessionId'
     | '/_authenticated/workout/$dayId'
   fileRoutesById: FileRoutesById
 }
@@ -163,6 +188,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProgressRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/today': {
       id: '/_authenticated/today'
       path: '/today'
@@ -175,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/exercise/$slug'
       fullPath: '/exercise/$slug'
       preLoaderRoute: typeof AuthenticatedExerciseSlugRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/summary/$sessionId': {
+      id: '/_authenticated/summary/$sessionId'
+      path: '/summary/$sessionId'
+      fullPath: '/summary/$sessionId'
+      preLoaderRoute: typeof AuthenticatedSummarySessionIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/workout/$dayId': {
@@ -190,16 +229,20 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedLibraryRoute: typeof AuthenticatedLibraryRoute
   AuthenticatedProgressRoute: typeof AuthenticatedProgressRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedTodayRoute: typeof AuthenticatedTodayRoute
   AuthenticatedExerciseSlugRoute: typeof AuthenticatedExerciseSlugRoute
+  AuthenticatedSummarySessionIdRoute: typeof AuthenticatedSummarySessionIdRoute
   AuthenticatedWorkoutDayIdRoute: typeof AuthenticatedWorkoutDayIdRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedLibraryRoute: AuthenticatedLibraryRoute,
   AuthenticatedProgressRoute: AuthenticatedProgressRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedTodayRoute: AuthenticatedTodayRoute,
   AuthenticatedExerciseSlugRoute: AuthenticatedExerciseSlugRoute,
+  AuthenticatedSummarySessionIdRoute: AuthenticatedSummarySessionIdRoute,
   AuthenticatedWorkoutDayIdRoute: AuthenticatedWorkoutDayIdRoute,
 }
 
