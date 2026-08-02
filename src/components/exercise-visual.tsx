@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   name: string;
-  gifUrl?: string | null;
-  imageUrl?: string | null;
-  muscle?: string | null;
-  className?: string;
+  gifUrl?: string | null | undefined;
+  imageUrl?: string | null | undefined;
+  muscle?: string | null | undefined;
+  className?: string | undefined;
 };
 
 /** Renders exercise media when an admin has uploaded a GIF/image, otherwise a branded fallback. */
