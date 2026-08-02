@@ -1,0 +1,28 @@
+{
+  "name": "IRONLOG — Gym Workout Tracker",
+  "short_name": "IRONLOG",
+  "description": "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative.",
+  "start_url": "/today",
+  "id": "/today",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141619",
+  "theme_color": "#141619",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    {
+      "src": "/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
