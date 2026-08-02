@@ -22,10 +22,12 @@ const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' https://fonts.gstatic.com",
+  "font-src 'self' https://fonts.gstatic.com https://cdn.gpteng.co",
   "img-src 'self' data: https:",
   `connect-src 'self' ${SUPABASE_ORIGIN} ${SUPABASE_ORIGIN.replace("https://", "wss://")}`.trim(),
-  "frame-ancestors 'none'",
+  // Lovable's own editor previews this app inside an iframe on lovable.dev —
+  // 'none' broke that (blank preview) and is what "not working" turned out to be.
+  "frame-ancestors 'self' https://lovable.dev https://*.lovable.app",
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",
@@ -34,7 +36,6 @@ const CONTENT_SECURITY_POLICY = [
 const SECURITY_HEADERS: Record<string, string> = {
   "Content-Security-Policy": CONTENT_SECURITY_POLICY,
   "X-Content-Type-Options": "nosniff",
-  "X-Frame-Options": "DENY",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "geolocation=(), camera=(), microphone=(), payment=()",
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
