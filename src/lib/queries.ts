@@ -130,7 +130,11 @@ export const exerciseLibraryQuery = (search: string) =>
   queryOptions({
     queryKey: ["exercise-library", search],
     queryFn: async (): Promise<FullExercise[]> => {
-      let q = supabase.from("exercises").select(EXERCISE_SELECT).eq("is_active", true).order("name");
+      let q = supabase
+        .from("exercises")
+        .select(EXERCISE_SELECT)
+        .eq("is_active", true)
+        .order("name");
       if (search.trim()) q = q.ilike("name", `%${search.trim()}%`);
       const rows = unwrap(await q.limit(200));
       return rows as unknown as FullExercise[];
@@ -176,7 +180,9 @@ export const favoritesQuery = (userId: string | undefined) =>
     queryKey: ["favorites", userId],
     enabled: Boolean(userId),
     queryFn: async () =>
-      unwrap(await supabase.from("favorite_exercises").select("exercise_id").eq("user_id", userId!)),
+      unwrap(
+        await supabase.from("favorite_exercises").select("exercise_id").eq("user_id", userId!),
+      ),
   });
 
 export type AlternativeRow = {
@@ -287,7 +293,11 @@ export const substitutionsQuery = (sessionId: string | undefined) =>
       unwrap(
         await supabase
           .from("session_substitutions")
-          .select("workout_exercise_id, replacement_exercise_id, replacement:exercises(" + EXERCISE_SELECT + ")")
+          .select(
+            "workout_exercise_id, replacement_exercise_id, replacement:exercises(" +
+              EXERCISE_SELECT +
+              ")",
+          )
           .eq("session_id", sessionId!),
       ) as unknown as {
         workout_exercise_id: string;
@@ -364,7 +374,9 @@ export function overloadSuggestion(prev: PreviousPerformance[], targetReps: stri
   const step = weight >= 60 ? 5 : 2.5;
   return {
     weight: hitTarget ? weight + step : weight,
-    reps: hitTarget ? Number(targetReps.split("-")[0]?.replace(/\D/g, "") || 8) : (top.reps ?? 0) + 1,
+    reps: hitTarget
+      ? Number(targetReps.split("-")[0]?.replace(/\D/g, "") || 8)
+      : (top.reps ?? 0) + 1,
     hitTarget,
     lastWeight: weight,
     lastReps: top.reps ?? 0,

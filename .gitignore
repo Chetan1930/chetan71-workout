@@ -1,3 +1,8 @@
+# This project uses bun (bun.lock) — do not commit an npm/yarn/pnpm lockfile alongside it
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # Logs
 logs
 *.log
@@ -19,6 +24,11 @@ dist-ssr
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
+
+# Environment variables (never commit secrets/keys)
+.env
+.env.local
+.env.*.local
 
 # Editor directories and files
 .vscode/*

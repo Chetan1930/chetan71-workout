@@ -20,7 +20,8 @@ export const Route = createFileRoute("/_authenticated/today")({
       { title: "Today's Workout — IRONLOG" },
       {
         name: "description",
-        content: "See the exercises scheduled for today, your streak and jump straight into training.",
+        content:
+          "See the exercises scheduled for today, your streak and jump straight into training.",
       },
       { property: "og:title", content: "Today's Workout — IRONLOG" },
       { property: "og:description", content: "Your split for today, ready to log set by set." },
@@ -106,7 +107,9 @@ function TodayPage() {
               className="surface flex items-center justify-between p-4"
             >
               <div>
-                <p className="label-caps">{d.day_of_week ? WEEKDAYS[d.day_of_week - 1] : "Flexible"}</p>
+                <p className="label-caps">
+                  {d.day_of_week ? WEEKDAYS[d.day_of_week - 1] : "Flexible"}
+                </p>
                 <p className="font-display text-2xl leading-tight">{d.name}</p>
               </div>
               <ChevronRight className="h-5 w-5 text-muted-foreground" />

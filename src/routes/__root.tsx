@@ -88,11 +88,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "IRONLOG — Gym Workout Tracker Built for the Gym Floor" },
       { property: "og:title", content: "IRONLOG — Gym Workout Tracker Built for the Gym Floor" },
       { name: "twitter:title", content: "IRONLOG — Gym Workout Tracker Built for the Gym Floor" },
-      { name: "description", content: "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative." },
-      { property: "og:description", content: "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative." },
-      { name: "twitter:description", content: "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a15975c7-fc54-464a-abc2-073b3e3b47e4/id-preview-3efef4cd--67cb0f5d-37ba-4ee9-8802-b08ef3aa0116.lovable.app-1785640123601.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a15975c7-fc54-464a-abc2-073b3e3b47e4/id-preview-3efef4cd--67cb0f5d-37ba-4ee9-8802-b08ef3aa0116.lovable.app-1785640123601.png" },
+      {
+        name: "description",
+        content:
+          "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative.",
+      },
+      {
+        property: "og:description",
+        content:
+          "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a15975c7-fc54-464a-abc2-073b3e3b47e4/id-preview-3efef4cd--67cb0f5d-37ba-4ee9-8802-b08ef3aa0116.lovable.app-1785640123601.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a15975c7-fc54-464a-abc2-073b3e3b47e4/id-preview-3efef4cd--67cb0f5d-37ba-4ee9-8802-b08ef3aa0116.lovable.app-1785640123601.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -136,4 +156,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

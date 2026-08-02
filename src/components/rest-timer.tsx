@@ -30,7 +30,8 @@ export function RestTimer({ defaultSeconds, onFinished, onClose }: Props) {
     if (left === 0 && !finishedRef.current) {
       finishedRef.current = true;
       setRunning(false);
-      if (typeof navigator !== "undefined" && "vibrate" in navigator) navigator.vibrate?.([200, 100, 200]);
+      if (typeof navigator !== "undefined" && "vibrate" in navigator)
+        navigator.vibrate?.([200, 100, 200]);
       onFinished();
     }
   }, [left, onFinished]);
@@ -60,7 +61,10 @@ export function RestTimer({ defaultSeconds, onFinished, onClose }: Props) {
       </p>
 
       <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-        <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${pct}%` }} />
+        <div
+          className="h-full rounded-full bg-primary transition-all"
+          style={{ width: `${pct}%` }}
+        />
       </div>
 
       <div className="mt-4 grid grid-cols-4 gap-2">
@@ -92,7 +96,12 @@ export function RestTimer({ defaultSeconds, onFinished, onClose }: Props) {
         >
           Set
         </Button>
-        <Button variant="secondary" size="icon" className="h-11 w-11" onClick={() => setRunning((r) => !r)}>
+        <Button
+          variant="secondary"
+          size="icon"
+          className="h-11 w-11"
+          onClick={() => setRunning((r) => !r)}
+        >
           {running ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
         </Button>
         <Button variant="secondary" size="icon" className="h-11 w-11" onClick={() => set(total)}>

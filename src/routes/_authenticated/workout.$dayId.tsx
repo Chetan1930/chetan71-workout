@@ -45,10 +45,14 @@ export const Route = createFileRoute("/_authenticated/workout/$dayId")({
       { title: "Workout — IRONLOG" },
       {
         name: "description",
-        content: "Work through today's exercises one at a time, logging weight, reps and RIR per set.",
+        content:
+          "Work through today's exercises one at a time, logging weight, reps and RIR per set.",
       },
       { property: "og:title", content: "Workout — IRONLOG" },
-      { property: "og:description", content: "Log every set with a rest timer and smart exercise swaps." },
+      {
+        property: "og:description",
+        content: "Log every set with a rest timer and smart exercise swaps.",
+      },
     ],
   }),
   component: WorkoutPage,
@@ -114,9 +118,7 @@ function WorkoutPage() {
 
   const availableSlugs = useMemo(() => {
     if (!userEquipment?.length || !allEquipment) return null;
-    const available = new Set(
-      userEquipment.filter((e) => e.available).map((e) => e.equipment_id),
-    );
+    const available = new Set(userEquipment.filter((e) => e.available).map((e) => e.equipment_id));
     if (available.size === 0) return null;
     return allEquipment.filter((e) => available.has(e.id)).map((e) => e.slug);
   }, [userEquipment, allEquipment]);
@@ -188,7 +190,11 @@ function WorkoutPage() {
 
   function onTimerFinished() {
     setShowTimer(false);
-    if (doneForExercise >= (current?.target_sets ?? 1) && dayExercises && index < dayExercises.length - 1) {
+    if (
+      doneForExercise >= (current?.target_sets ?? 1) &&
+      dayExercises &&
+      index < dayExercises.length - 1
+    ) {
       setIndex((i) => i + 1);
       toast.info("Next exercise");
     }

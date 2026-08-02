@@ -46,11 +46,11 @@ Frontend
 
 The UI should be mobile-first because the app will primarily be used inside a gym.
 
---------------------------------------------------
+---
 
 Goal
 
---------------------------------------------------
+---
 
 This is NOT a calorie tracker.
 
@@ -80,11 +80,11 @@ Move to next exercise
 
 Track weights and reps
 
---------------------------------------------------
+---
 
 Authentication
 
---------------------------------------------------
+---
 
 Implement
 
@@ -96,11 +96,11 @@ Implement
 
 - Refresh Token
 
---------------------------------------------------
+---
 
 Workout Split
 
---------------------------------------------------
+---
 
 Seed the database with the following split.
 
@@ -230,11 +230,11 @@ Triceps
 
 - Rope Pushdown
 
---------------------------------------------------
+---
 
 Database Design
 
---------------------------------------------------
+---
 
 Create proper normalized models.
 
@@ -260,11 +260,11 @@ The relationships should be scalable.
 
 Do NOT hardcode exercises.
 
---------------------------------------------------
+---
 
 Exercise Model
 
---------------------------------------------------
+---
 
 Each exercise should contain
 
@@ -298,11 +298,11 @@ updated_at
 
 is_active
 
---------------------------------------------------
+---
 
 Workout Session
 
---------------------------------------------------
+---
 
 Each workout session stores
 
@@ -324,11 +324,11 @@ completed
 
 notes
 
---------------------------------------------------
+---
 
 Features
 
---------------------------------------------------
+---
 
 Dashboard
 
@@ -352,7 +352,7 @@ Previous Exercise
 
 Workout Summary
 
---------------------------------------------------
+---
 
 Exercise Detail
 
@@ -370,7 +370,7 @@ Equipment
 
 Tips
 
---------------------------------------------------
+---
 
 REST Timer
 
@@ -386,7 +386,7 @@ Custom timer
 
 Automatically move to next set after timer ends.
 
---------------------------------------------------
+---
 
 Admin Panel
 
@@ -414,7 +414,7 @@ Change exercise order with drag ordering field
 
 Everything should be editable from Django Admin.
 
---------------------------------------------------
+---
 
 IMPORTANT FEATURE
 
@@ -442,7 +442,7 @@ Save
 
 Without changing any code.
 
---------------------------------------------------
+---
 
 Future Ready
 
@@ -462,7 +462,7 @@ Powerlifting
 
 Bodybuilding
 
---------------------------------------------------
+---
 
 API
 
@@ -480,7 +480,7 @@ Filtering.
 
 Searching.
 
---------------------------------------------------
+---
 
 Frontend
 
@@ -498,7 +498,7 @@ Bottom navigation.
 
 Large buttons for gym usage.
 
---------------------------------------------------
+---
 
 Exercise Screen
 
@@ -524,7 +524,7 @@ Rest Timer
 
 Workout Progress
 
---------------------------------------------------
+---
 
 Extra Features
 
@@ -540,7 +540,7 @@ Favorite exercises
 
 Notes
 
---------------------------------------------------
+---
 
 Code Quality
 
@@ -568,7 +568,7 @@ README
 
 API documentation using Swagger
 
---------------------------------------------------
+---
 
 Deliverables
 
@@ -670,7 +670,7 @@ fatigue_score
 
 stability_requirement
 
-------------------------------------------------------
+---
 
 Example
 
@@ -698,7 +698,7 @@ Alternative ranking
 
 5. Push Ups
 
-------------------------------------------------------
+---
 
 Lat Pulldown
 
@@ -712,7 +712,7 @@ Lat Pulldown
 
 5. Straight Arm Pulldown
 
-------------------------------------------------------
+---
 
 Cable Row
 
@@ -726,7 +726,7 @@ Cable Row
 
 5. Dumbbell Row
 
-------------------------------------------------------
+---
 
 Squat
 
@@ -740,7 +740,7 @@ Squat
 
 5. Bulgarian Split Squat
 
-------------------------------------------------------
+---
 
 Romanian Deadlift
 
@@ -754,7 +754,7 @@ Romanian Deadlift
 
 5. Back Extension
 
-------------------------------------------------------
+---
 
 Shoulder Press
 
@@ -768,7 +768,7 @@ Shoulder Press
 
 5. Pike Push Up
 
-------------------------------------------------------
+---
 
 Lateral Raise
 
@@ -782,7 +782,7 @@ Lateral Raise
 
 5. Dumbbell Lateral Raise
 
-------------------------------------------------------
+---
 
 Face Pull
 
@@ -796,7 +796,7 @@ Face Pull
 
 5. Chest Supported Rear Delt Raise
 
-------------------------------------------------------
+---
 
 Barbell Curl
 
@@ -810,7 +810,7 @@ Barbell Curl
 
 5. Machine Curl
 
-------------------------------------------------------
+---
 
 Hammer Curl
 
@@ -824,7 +824,7 @@ Hammer Curl
 
 5. Machine Neutral Curl
 
-------------------------------------------------------
+---
 
 Triceps Pushdown
 
@@ -838,7 +838,7 @@ Triceps Pushdown
 
 5. Assisted Dip
 
-------------------------------------------------------
+---
 
 Leg Extension
 
@@ -852,7 +852,7 @@ Leg Extension
 
 5. Hack Squat
 
-------------------------------------------------------
+---
 
 Leg Curl
 
@@ -866,7 +866,7 @@ Leg Curl
 
 5. Seated Leg Curl
 
-------------------------------------------------------
+---
 
 Calf Raise
 
@@ -880,7 +880,7 @@ Calf Raise
 
 5. Single Leg Calf Raise
 
-------------------------------------------------------
+---
 
 The backend should automatically compute similarity between exercises.
 
@@ -912,7 +912,7 @@ Same muscles.
 
 Different equipment.
 
-------------------------------------------------------
+---
 
 The frontend should provide a
 
@@ -940,7 +940,7 @@ GIF Preview
 
 Reason why it was selected
 
-------------------------------------------------------
+---
 
 If the selected equipment is unavailable
 
@@ -972,7 +972,7 @@ Available Equipment
 
 the replacement engine should only recommend exercises that can actually be performed.
 
-------------------------------------------------------
+---
 
 The replacement engine should be entirely database driven.
 

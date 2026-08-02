@@ -146,7 +146,8 @@
 }
 
 @utility glow-primary {
-  box-shadow: 0 0 0 1px color-mix(in oklch, var(--color-primary) 40%, transparent),
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--color-primary) 40%, transparent),
     0 12px 40px -12px color-mix(in oklch, var(--color-primary) 55%, transparent);
 }
 

@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { CalendarDays, Dumbbell, Search, Settings, Sliders } from "lucide-react";
+import { CalendarDays, Dumbbell, Search, Settings } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -10,16 +10,15 @@ const ITEMS = [
   { to: "/settings", label: "Settings", icon: Settings },
 ] as const;
 
-export function BottomNav({ isAdmin }: { isAdmin: boolean }) {
+// isAdmin is accepted (and role-checked server-side via RLS) for a future admin
+// page; there's no /admin route yet, so it doesn't change the rendered nav.
+export function BottomNav({ isAdmin: _isAdmin }: { isAdmin: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const items = isAdmin
-    ? [...ITEMS, { to: "/admin", label: "Admin", icon: Sliders } as const]
-    : ITEMS;
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
       <ul className="mx-auto flex max-w-lg">
-        {items.map((item) => {
+        {ITEMS.map((item) => {
           const active = pathname === item.to || pathname.startsWith(`${item.to}/`);
           return (
             <li key={item.to} className="flex-1">

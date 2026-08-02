@@ -26,10 +26,26 @@ export const Route = createFileRoute("/")({
 });
 
 const FEATURES = [
-  { icon: Dumbbell, title: "One exercise at a time", body: "No scrolling. Current lift, current set, next." },
-  { icon: Timer, title: "Rest timer that drives you", body: "60/90/120/180 or custom, auto-advances your set." },
-  { icon: Repeat2, title: "Smart replacements", body: "Machine taken? Get ranked alternatives you can actually do." },
-  { icon: TrendingUp, title: "Progressive overload", body: "Last session's numbers and a suggested jump." },
+  {
+    icon: Dumbbell,
+    title: "One exercise at a time",
+    body: "No scrolling. Current lift, current set, next.",
+  },
+  {
+    icon: Timer,
+    title: "Rest timer that drives you",
+    body: "60/90/120/180 or custom, auto-advances your set.",
+  },
+  {
+    icon: Repeat2,
+    title: "Smart replacements",
+    body: "Machine taken? Get ranked alternatives you can actually do.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Progressive overload",
+    body: "Last session's numbers and a suggested jump.",
+  },
 ];
 
 function Landing() {

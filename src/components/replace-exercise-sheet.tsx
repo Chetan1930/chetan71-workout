@@ -37,7 +37,10 @@ export function ReplaceExerciseSheet({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="bottom" className="max-h-[88vh] overflow-y-auto rounded-t-3xl border-border">
+      <SheetContent
+        side="bottom"
+        className="max-h-[88vh] overflow-y-auto rounded-t-3xl border-border"
+      >
         <SheetHeader className="px-0 text-left">
           <SheetTitle className="font-display text-2xl">Replace {exercise.name}</SheetTitle>
           <SheetDescription>
@@ -81,7 +84,11 @@ export function ReplaceExerciseSheet({
                     <p className="mt-2 text-xs text-muted-foreground">{alt.reason}</p>
                   </div>
                 </div>
-                <Button className="mt-3 h-11 w-full" disabled={picking} onClick={() => onPick(alt.id)}>
+                <Button
+                  className="mt-3 h-11 w-full"
+                  disabled={picking}
+                  onClick={() => onPick(alt.id)}
+                >
                   <Check className="mr-1 h-4 w-4" /> Use this instead
                 </Button>
               </li>

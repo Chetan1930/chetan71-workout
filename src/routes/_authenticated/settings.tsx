@@ -34,11 +34,12 @@ function SettingsPage() {
   const toggle = useMutation({
     mutationFn: async ({ id, value }: { id: string; value: boolean }) => {
       if (!user?.id) return;
-      const { error } = await supabase
-        .from("user_equipment")
-        .upsert({ user_id: user.id, equipment_id: id, available: value }, {
+      const { error } = await supabase.from("user_equipment").upsert(
+        { user_id: user.id, equipment_id: id, available: value },
+        {
           onConflict: "user_id,equipment_id",
-        });
+        },
+      );
       if (error) throw new Error(error.message);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["user-equipment", user?.id] }),

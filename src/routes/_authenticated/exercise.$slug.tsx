@@ -12,7 +12,8 @@ export const Route = createFileRoute("/_authenticated/exercise/$slug")({
       { title: "Exercise Detail — IRONLOG" },
       {
         name: "description",
-        content: "Instructions, cues, common mistakes, muscles worked and equipment for this exercise.",
+        content:
+          "Instructions, cues, common mistakes, muscles worked and equipment for this exercise.",
       },
       { property: "og:title", content: "Exercise Detail — IRONLOG" },
       { property: "og:description", content: "How to perform the lift, and what it trains." },
@@ -51,9 +52,13 @@ function ExerciseDetail() {
   }
 
   const pattern = ex.movement_pattern;
-  const instructions = ex.instructions.length ? ex.instructions : (pattern?.default_instructions ?? []);
+  const instructions = ex.instructions.length
+    ? ex.instructions
+    : (pattern?.default_instructions ?? []);
   const tips = ex.tips.length ? ex.tips : (pattern?.default_tips ?? []);
-  const mistakes = ex.common_mistakes.length ? ex.common_mistakes : (pattern?.default_mistakes ?? []);
+  const mistakes = ex.common_mistakes.length
+    ? ex.common_mistakes
+    : (pattern?.default_mistakes ?? []);
 
   return (
     <main className="screen-pad pt-6">

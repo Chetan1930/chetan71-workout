@@ -16,10 +16,14 @@ export const Route = createFileRoute("/_authenticated/library")({
       { title: "Exercise Library — IRONLOG" },
       {
         name: "description",
-        content: "Search every exercise in your database, favourite the ones you use and open full details.",
+        content:
+          "Search every exercise in your database, favourite the ones you use and open full details.",
       },
       { property: "og:title", content: "Exercise Library — IRONLOG" },
-      { property: "og:description", content: "Search, favourite and study every lift in your plan." },
+      {
+        property: "og:description",
+        content: "Search, favourite and study every lift in your plan.",
+      },
     ],
   }),
   component: LibraryPage,
