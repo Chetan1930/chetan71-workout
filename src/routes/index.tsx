@@ -14,11 +14,11 @@ export const Route = createFileRoute("/")({
         content:
           "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative.",
       },
-      { property: "og:title", content: "IRONLOG — Gym Workout Tracker" },
+      { property: "og:title", content: "IRONLOG — Gym Workout Tracker Built for the Gym Floor" },
       {
         property: "og:description",
         content:
-          "Today's split, one exercise at a time. Log sets, track overload, replace exercises intelligently.",
+          "Open the app, see today's workout, log weight and reps set by set, rest on a timer and swap any busy machine for the closest alternative.",
       },
     ],
   }),
