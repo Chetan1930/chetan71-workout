@@ -12,7 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedLibraryRouteImport } from './routes/_authenticated/library'
+import { Route as AuthenticatedProgressRouteImport } from './routes/_authenticated/progress'
 import { Route as AuthenticatedTodayRouteImport } from './routes/_authenticated/today'
+import { Route as AuthenticatedExerciseSlugRouteImport } from './routes/_authenticated/exercise.$slug'
 import { Route as AuthenticatedWorkoutDayIdRouteImport } from './routes/_authenticated/workout.$dayId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,11 +32,27 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedLibraryRoute = AuthenticatedLibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProgressRoute = AuthenticatedProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedTodayRoute = AuthenticatedTodayRouteImport.update({
   id: '/today',
   path: '/today',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedExerciseSlugRoute =
+  AuthenticatedExerciseSlugRouteImport.update({
+    id: '/exercise/$slug',
+    path: '/exercise/$slug',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedWorkoutDayIdRoute =
   AuthenticatedWorkoutDayIdRouteImport.update({
     id: '/workout/$dayId',
@@ -44,13 +63,19 @@ const AuthenticatedWorkoutDayIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/library': typeof AuthenticatedLibraryRoute
+  '/progress': typeof AuthenticatedProgressRoute
   '/today': typeof AuthenticatedTodayRoute
+  '/exercise/$slug': typeof AuthenticatedExerciseSlugRoute
   '/workout/$dayId': typeof AuthenticatedWorkoutDayIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/library': typeof AuthenticatedLibraryRoute
+  '/progress': typeof AuthenticatedProgressRoute
   '/today': typeof AuthenticatedTodayRoute
+  '/exercise/$slug': typeof AuthenticatedExerciseSlugRoute
   '/workout/$dayId': typeof AuthenticatedWorkoutDayIdRoute
 }
 export interface FileRoutesById {
@@ -58,20 +83,40 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/_authenticated/library': typeof AuthenticatedLibraryRoute
+  '/_authenticated/progress': typeof AuthenticatedProgressRoute
   '/_authenticated/today': typeof AuthenticatedTodayRoute
+  '/_authenticated/exercise/$slug': typeof AuthenticatedExerciseSlugRoute
   '/_authenticated/workout/$dayId': typeof AuthenticatedWorkoutDayIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/today' | '/workout/$dayId'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/library'
+    | '/progress'
+    | '/today'
+    | '/exercise/$slug'
+    | '/workout/$dayId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/today' | '/workout/$dayId'
+  to:
+    | '/'
+    | '/auth'
+    | '/library'
+    | '/progress'
+    | '/today'
+    | '/exercise/$slug'
+    | '/workout/$dayId'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/_authenticated/library'
+    | '/_authenticated/progress'
     | '/_authenticated/today'
+    | '/_authenticated/exercise/$slug'
     | '/_authenticated/workout/$dayId'
   fileRoutesById: FileRoutesById
 }
@@ -104,11 +149,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/library': {
+      id: '/_authenticated/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof AuthenticatedLibraryRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/progress': {
+      id: '/_authenticated/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof AuthenticatedProgressRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/today': {
       id: '/_authenticated/today'
       path: '/today'
       fullPath: '/today'
       preLoaderRoute: typeof AuthenticatedTodayRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/exercise/$slug': {
+      id: '/_authenticated/exercise/$slug'
+      path: '/exercise/$slug'
+      fullPath: '/exercise/$slug'
+      preLoaderRoute: typeof AuthenticatedExerciseSlugRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/workout/$dayId': {
@@ -122,12 +188,18 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedLibraryRoute: typeof AuthenticatedLibraryRoute
+  AuthenticatedProgressRoute: typeof AuthenticatedProgressRoute
   AuthenticatedTodayRoute: typeof AuthenticatedTodayRoute
+  AuthenticatedExerciseSlugRoute: typeof AuthenticatedExerciseSlugRoute
   AuthenticatedWorkoutDayIdRoute: typeof AuthenticatedWorkoutDayIdRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedLibraryRoute: AuthenticatedLibraryRoute,
+  AuthenticatedProgressRoute: AuthenticatedProgressRoute,
   AuthenticatedTodayRoute: AuthenticatedTodayRoute,
+  AuthenticatedExerciseSlugRoute: AuthenticatedExerciseSlugRoute,
   AuthenticatedWorkoutDayIdRoute: AuthenticatedWorkoutDayIdRoute,
 }
 
