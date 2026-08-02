@@ -201,7 +201,7 @@ export const alternativesQuery = (exerciseId: string, equipmentSlugs: string[] |
       unwrap(
         await supabase.rpc("rank_exercise_alternatives", {
           _exercise_id: exerciseId,
-          _equipment_slugs: equipmentSlugs,
+          ...(equipmentSlugs ? { _equipment_slugs: equipmentSlugs } : {}),
           _limit: 5,
         }),
       ) as AlternativeRow[],
