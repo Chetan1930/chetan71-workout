@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Dumbbell } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -10,18 +11,38 @@ type Props = {
   className?: string | undefined;
 };
 
-/** Renders exercise media when an admin has uploaded a GIF/image, otherwise a branded fallback. */
+/**
+ * Renders exercise media. When both a start frame (image) and end frame (gif slot)
+ * exist, the two are cross-faded to animate the movement. Falls back to a branded tile.
+ */
 export function ExerciseVisual({ name, gifUrl, imageUrl, muscle, className }: Props) {
-  const src = gifUrl || imageUrl;
+  const frames = [imageUrl, gifUrl].filter(Boolean) as string[];
+  const [frame, setFrame] = useState(0);
+  const [broken, setBroken] = useState(false);
 
-  if (src) {
+  useEffect(() => {
+    if (frames.length < 2) return;
+    const id = setInterval(() => setFrame((f) => (f + 1) % 2), 1100);
+    return () => clearInterval(id);
+  }, [frames.length]);
+
+  if (frames.length && !broken) {
     return (
-      <img
-        src={src}
-        alt={`${name} demonstration`}
-        loading="lazy"
-        className={cn("w-full rounded-xl object-cover", className)}
-      />
+      <div className={cn("relative overflow-hidden rounded-xl bg-elevated", className)}>
+        {frames.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`${name} demonstration`}
+            loading="lazy"
+            onError={() => setBroken(true)}
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
+              frames.length < 2 || i === frame ? "opacity-100" : "opacity-0",
+            )}
+          />
+        ))}
+      </div>
     );
   }
 
