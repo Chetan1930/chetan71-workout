@@ -141,6 +141,18 @@ export const exerciseLibraryQuery = (search: string) =>
     },
   });
 
+/** Admin-only: every exercise regardless of is_active, for the management table. */
+export const adminExercisesQuery = (search: string) =>
+  queryOptions({
+    queryKey: ["admin-exercises", search],
+    queryFn: async (): Promise<FullExercise[]> => {
+      let q = supabase.from("exercises").select(EXERCISE_SELECT).order("name");
+      if (search.trim()) q = q.ilike("name", `%${search.trim()}%`);
+      const rows = unwrap(await q.limit(500));
+      return rows as unknown as FullExercise[];
+    },
+  });
+
 export const equipmentQuery = () =>
   queryOptions({
     queryKey: ["equipment"],
