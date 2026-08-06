@@ -279,6 +279,25 @@ function WorkoutPage() {
         className="mt-4 h-52"
       />
 
+      <div className="mt-3 grid grid-cols-2 gap-2">
+        <Button
+          variant="secondary"
+          className="h-12"
+          disabled={index === 0}
+          onClick={() => setIndex((i) => Math.max(0, i - 1))}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" /> Previous
+        </Button>
+        <Button
+          variant="secondary"
+          className="h-12"
+          disabled={!dayExercises || index >= dayExercises.length - 1}
+          onClick={() => setIndex((i) => i + 1)}
+        >
+          Next <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </div>
+
       <div className="mt-4 flex items-start justify-between gap-2">
         <div>
           <h1 className="font-display text-4xl leading-none">{exercise.name}</h1>
@@ -416,28 +435,9 @@ function WorkoutPage() {
         </div>
       )}
 
-      <div className="mt-4 grid grid-cols-2 gap-2">
-        <Button
-          variant="secondary"
-          className="h-12"
-          disabled={index === 0}
-          onClick={() => setIndex((i) => Math.max(0, i - 1))}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" /> Previous
-        </Button>
-        <Button
-          variant="secondary"
-          className="h-12"
-          disabled={!dayExercises || index >= dayExercises.length - 1}
-          onClick={() => setIndex((i) => i + 1)}
-        >
-          Next <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </div>
-
       <Button
         variant="outline"
-        className="mt-3 h-12 w-full"
+        className="mt-4 h-12 w-full"
         onClick={() => finish.mutate()}
         disabled={finish.isPending}
       >
