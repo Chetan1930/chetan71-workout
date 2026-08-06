@@ -18,6 +18,10 @@ export default defineConfig({
       "import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY": JSON.stringify(
         "sb_publishable_oFO0jb4KNx0kDq6LuozmKw_bP4_oh4B",
       ),
+      "process.env.SUPABASE_URL": JSON.stringify("https://vikjfvqmujvlhyogdokn.supabase.co"),
+      "process.env.SUPABASE_PUBLISHABLE_KEY": JSON.stringify(
+        "sb_publishable_oFO0jb4KNx0kDq6LuozmKw_bP4_oh4B",
+      ),
     },
   },
   tanstackStart: {
